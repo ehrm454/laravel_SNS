@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class SnsUsers extends Migration
+class SnsFiles extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,14 @@ class SnsUsers extends Migration
      */
     public function up()
     {
-		Schema::create('sns_users', function (Blueprint $table) {
+        Schema::create('sns_files', function (Blueprint $table) {
 			$table->increments('idx');
-			$table->string('login_id');
-			$table->string('login_pw');
-			$table->string('nick_name');
-			$table->integer('state')->default(1);
-			$table->integer('level')->default(1);
-			$table->integer('exp')->default(1);
+			$table->string('physical_name');
+			$table->string('virtual_name');
+			$table->string('directory')->default('img/');
+			$table->integer('state');
+			$table->integer('upload_user');
+			$table->integer('upload_date');
 		});
     }
 
